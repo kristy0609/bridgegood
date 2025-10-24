@@ -929,29 +929,29 @@ h4 {
         height: 90px;
     }
     
-    /* Circle shape - anchor to bottom left of Hands On Experience (tile-yellow, 3rd tile) */
+    /* Flower shape - anchor to bottom right of Pitch to Leaders (tile 2, row 1 right) */
     .gutter-element-1 {
         width: 110px;
         height: 110px;
-        top: calc(200px + var(--spacing-md));
-        left: calc(50% - 55px);
-        transform: translate(0, 50%);
-    }
-    
-    .gutter-element-1:hover {
-        transform: translate(0, 50%) translateY(-10px);
-    }
-    
-    /* Flower shape - anchor to bottom right of Pitch to Leaders (tile-coral, 2nd tile) */
-    .gutter-element-2 {
-        top: calc(200px - 55px);
+        top: calc(200px - 20px);
         left: auto;
         right: 0;
         transform: translate(50%, 0);
     }
     
-    .gutter-element-2:hover {
+    .gutter-element-1:hover {
         transform: translate(50%, 0) translateY(-10px);
+    }
+    
+    /* Circle shape - anchor to bottom left of Hands On Experience (tile 3, row 2 right) */
+    .gutter-element-2 {
+        top: calc(200px + var(--spacing-md) + 200px);
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+    
+    .gutter-element-2:hover {
+        transform: translate(-50%, 0) translateY(-10px);
     }
 }
 
@@ -988,31 +988,31 @@ h4 {
         height: 80px;
     }
     
-    /* Circle shape - anchor to bottom left of Hands On Experience (3rd tile in single column) */
+    /* Flower shape - anchor to bottom right of Pitch to Leaders (tile 2) */
     .gutter-element-1 {
         width: 100px;
         height: 100px;
-        /* Position relative to 3rd tile */
-        top: calc((180px + var(--spacing-md)) * 2 + 180px);
-        left: 0;
-        transform: translate(-50%, 50%);
+        /* Position at bottom right of tile 2 (Pitch to Leaders) */
+        top: calc((180px + var(--spacing-md)) * 2 - 20px);
+        left: auto;
+        right: 0;
+        transform: translate(50%, 0);
     }
     
     .gutter-element-1:hover {
-        transform: translate(-50%, 50%) translateY(-10px);
+        transform: translate(50%, 0) translateY(-10px);
     }
     
-    /* Flower shape - anchor to bottom right of Pitch to Leaders (2nd tile in single column) */
+    /* Circle shape - anchor to bottom left of Hands On Experience (tile 3) */
     .gutter-element-2 {
-        /* Position relative to 2nd tile */
-        top: calc((180px + var(--spacing-md)) * 1 + 180px);
-        left: auto;
-        right: 0;
-        transform: translate(50%, 50%);
+        /* Position at bottom left of tile 3 (Hands On Experience) */
+        top: calc((180px + var(--spacing-md)) * 2 + 180px);
+        left: 0;
+        transform: translate(-50%, 0);
     }
     
     .gutter-element-2:hover {
-        transform: translate(50%, 50%) translateY(-10px);
+        transform: translate(-50%, 0) translateY(-10px);
     }
 }
 
