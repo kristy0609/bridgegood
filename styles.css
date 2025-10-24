@@ -923,36 +923,35 @@ h4 {
         font-size: 1.05rem;
     }
     
-    /* Show smaller gutter elements on tablet - centered in gutters between rows */
+    /* Anchor gutter elements to specific tiles */
     .gutter-element {
         width: 90px;
         height: 90px;
-        left: 50%;
-        transform: translate(-50%, -50%);
     }
     
-    .gutter-element:hover {
-        transform: translate(-50%, -50%) translateY(-10px);
-    }
-    
+    /* Circle shape - anchor to bottom left of Hands On Experience (tile-yellow, 3rd tile) */
     .gutter-element-1 {
         width: 110px;
         height: 110px;
-        top: 37%;
+        top: calc(200px + var(--spacing-md));
+        left: calc(50% - 55px);
+        transform: translate(0, 50%);
     }
     
     .gutter-element-1:hover {
-        transform: translate(-50%, -50%) translateY(-10px);
+        transform: translate(0, 50%) translateY(-10px);
     }
     
+    /* Flower shape - anchor to bottom right of Pitch to Leaders (tile-coral, 2nd tile) */
     .gutter-element-2 {
-        top: 63%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        top: calc(200px - 55px);
+        left: auto;
+        right: 0;
+        transform: translate(50%, 0);
     }
     
     .gutter-element-2:hover {
-        transform: translate(-50%, -50%) translateY(-10px);
+        transform: translate(50%, 0) translateY(-10px);
     }
 }
 
@@ -977,41 +976,43 @@ h4 {
     .tile-bg-img {
         width: 80px;
         height: 80px;
-        top: 5px;
-        right: 5px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         opacity: 0.4;
     }
     
-    /* Show smaller gutter elements on small mobile - centered in gutters between rows */
+    /* Anchor gutter elements to specific tiles on mobile */
     .gutter-element {
         width: 80px;
         height: 80px;
-        left: 50%;
-        transform: translate(-50%, -50%);
     }
     
-    .gutter-element:hover {
-        transform: translate(-50%, -50%) translateY(-10px);
-    }
-    
+    /* Circle shape - anchor to bottom left of Hands On Experience (3rd tile in single column) */
     .gutter-element-1 {
         width: 100px;
         height: 100px;
-        top: 37%;
+        /* Position relative to 3rd tile */
+        top: calc((180px + var(--spacing-md)) * 2 + 180px);
+        left: 0;
+        transform: translate(-50%, 50%);
     }
     
     .gutter-element-1:hover {
-        transform: translate(-50%, -50%) translateY(-10px);
+        transform: translate(-50%, 50%) translateY(-10px);
     }
     
+    /* Flower shape - anchor to bottom right of Pitch to Leaders (2nd tile in single column) */
     .gutter-element-2 {
-        top: 63%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        /* Position relative to 2nd tile */
+        top: calc((180px + var(--spacing-md)) * 1 + 180px);
+        left: auto;
+        right: 0;
+        transform: translate(50%, 50%);
     }
     
     .gutter-element-2:hover {
-        transform: translate(-50%, -50%) translateY(-10px);
+        transform: translate(50%, 50%) translateY(-10px);
     }
 }
 
@@ -1546,15 +1547,15 @@ h4 {
         grid-template-columns: repeat(3, 1fr);
     }
     
-    /* Sponsor tiers - center last card */
+    /* Sponsor tiers - make last card full width */
     .sponsor-tiers {
         grid-template-columns: repeat(2, 1fr);
     }
     
     .tier-card:nth-child(3) {
         grid-column: 1 / -1;
-        max-width: 50%;
-        margin: 0 auto;
+        max-width: 100%;
+        margin: 0;
     }
 }
 
@@ -1563,16 +1564,27 @@ h4 {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    /* Center the last (5th) journey step */
+    /* Make the last (5th) journey step full width */
     .journey-step:nth-child(5) {
         grid-column: 1 / -1;
-        max-width: 50%;
-        margin: 0 auto;
+        max-width: 100%;
+        margin: 0;
     }
     
     .info-container {
         grid-template-columns: 1fr;
         gap: var(--spacing-xl);
+        padding: var(--spacing-md) var(--spacing-md) 0 var(--spacing-md);
+        margin-bottom: 0;
+    }
+    
+    .info-column {
+        margin-bottom: 0;
+    }
+    
+    .info-column:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
     }
     
     .info-pill {
@@ -2220,6 +2232,7 @@ h4 {
     .hero-title {
         font-size: 3.5rem;
         letter-spacing: -2px;
+        line-height: 1.3;
     }
     
     .hero-meta {
@@ -2256,10 +2269,12 @@ h4 {
     
     .section-title {
         font-size: 2rem;
+        line-height: 1.4;
     }
     
     .subsection-title {
         font-size: 1.4rem;
+        line-height: 1.4;
     }
     
     .two-column {
