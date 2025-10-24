@@ -1757,46 +1757,62 @@ h4 {
 .partners-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-xl);
+    gap: var(--spacing-md);
     max-width: 800px;
     margin: var(--spacing-2xl) auto var(--spacing-3xl) auto;
 }
 
 .partner-card {
     background-color: white;
-    padding: var(--spacing-xl);
+    padding: var(--spacing-md) var(--spacing-md);
     border-radius: var(--radius-xl);
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: all 0.3s ease;
-}
-
-.partner-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    justify-content: center;
 }
 
 .partner-logo {
     max-width: 160px;
     height: auto;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+    margin-top: var(--spacing-sm);
+}
+
+.partner-photo-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
 .partner-photo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    margin-bottom: var(--spacing-md);
+    display: block;
+}
+
+.partner-card:last-child {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    gap: var(--spacing-md);
+}
+
+.partner-card:last-child .partner-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
 .partner-card h4 {
     font-size: 1.3rem;
     font-weight: var(--font-weight-bold);
     color: var(--e-global-color-secondary);
-    margin-bottom: var(--spacing-xs);
+    margin: 0;
 }
 
 .partner-card p {
@@ -2343,6 +2359,11 @@ h4 {
     
     .provides-list {
         grid-template-columns: 1fr;
+    }
+    
+    /* Partner cards on mobile */
+    .partner-card:last-child {
+        justify-content: center;
     }
     
     /* About Section Responsive */
