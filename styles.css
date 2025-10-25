@@ -1834,6 +1834,21 @@ h4 {
     margin: 0;
 }
 
+.partner-credits {
+    font-size: 0.9rem;
+    color: var(--hackathon-teal);
+    margin-top: 4px !important;
+}
+
+.partner-label {
+    font-size: 0.85rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--hackathon-teal);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px !important;
+}
+
 .sponsor-logo-container {
     text-align: center;
     margin: var(--spacing-xl) auto var(--spacing-2xl) auto;
