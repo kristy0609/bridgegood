@@ -784,6 +784,19 @@ h4 {
     z-index: 10;
 }
 
+/* Decorative element in top left corner */
+.tile-decoration-topleft {
+    position: absolute;
+    top: -75px;
+    left: -75px;
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 10;
+}
+
 
 /* Tile Text */
 .tile-text {
@@ -1756,15 +1769,14 @@ h4 {
 
 .partners-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-md);
-    max-width: 800px;
     margin: var(--spacing-2xl) auto var(--spacing-3xl) auto;
 }
 
 .partner-card {
     background-color: white;
-    padding: var(--spacing-md) var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-xl);
     border-radius: var(--radius-xl);
     text-align: center;
     display: flex;
@@ -1774,18 +1786,25 @@ h4 {
     text-decoration: none;
     cursor: pointer;
     opacity: 1;
-    transition: opacity 0.2s ease;
+    transition: all 0.3s ease;
+    min-height: 200px;
 }
 
 .partner-card:hover {
     opacity: 0.7;
+    transform: translateY(-5px);
 }
 
 .partner-logo {
-    max-width: 160px;
+    max-width: 280px;
     height: auto;
     margin-bottom: var(--spacing-xs);
     margin-top: var(--spacing-sm);
+}
+
+/* Lovable logo - smaller size */
+.partner-card:first-child .partner-logo {
+    max-width: 200px;
 }
 
 .partner-photo-wrapper {
@@ -1803,14 +1822,15 @@ h4 {
     display: block;
 }
 
-.partner-card:last-child {
+/* Kevin Hou card with horizontal layout */
+.partner-card:nth-child(2) {
     flex-direction: row;
     justify-content: flex-start;
     text-align: left;
     gap: var(--spacing-md);
 }
 
-.partner-card:last-child .partner-info {
+.partner-card:nth-child(2) .partner-info {
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -2390,7 +2410,7 @@ h4 {
     }
     
     /* Partner cards on mobile */
-    .partner-card:last-child {
+    .partner-card:nth-child(2) {
         justify-content: center;
     }
     
