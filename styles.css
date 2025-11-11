@@ -1221,7 +1221,7 @@ h4 {
 
 .timeline-content a:hover {
     color: var(--hackathon-teal);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /* ===================================
@@ -1941,7 +1941,7 @@ h4 {
     text-align: center;
     font-size: 1.2rem;
     color: var(--e-global-color-text);
-    font-style: italic;
+    font-style: normal;
     margin: var(--spacing-lg) 0;
     line-height: 1.45;
 }
@@ -1961,7 +1961,7 @@ h4 {
 
 .sponsor-contact a:hover {
     color: var(--hackathon-teal);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /* ===================================
@@ -2042,7 +2042,7 @@ h4 {
 
 .faq-item a:hover {
     color: var(--hackathon-teal);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /* ===================================
@@ -2106,7 +2106,7 @@ h4 {
 .cta-note {
     font-size: 1.15rem;
     margin-bottom: var(--spacing-md);
-    font-style: italic;
+    font-style: normal;
 }
 
 .cta-hashtag {
@@ -2591,3 +2591,55 @@ html {
     }
 }
 
+
+/* ===================================
+   ALERT BANNER
+   =================================== */
+
+.alert-banner {
+    background: linear-gradient(135deg, #D64F3F, #E85D4E);
+    color: white;
+    padding: 14px 0;
+    text-align: center;
+    position: relative;
+    z-index: 999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.alert-banner .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert-text {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: white;
+}
+
+.alert-text strong {
+    font-weight: var(--font-weight-bold);
+}
+
+.alert-text a {
+    color: white;
+    text-decoration: underline;
+    font-weight: var(--font-weight-semibold);
+    transition: opacity 0.2s ease;
+}
+
+.alert-text a:hover {
+    opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+    .alert-banner {
+        padding: 12px 0;
+    }
+    
+    .alert-text {
+        font-size: 0.95rem;
+    }
+}
