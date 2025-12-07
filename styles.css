@@ -307,11 +307,26 @@ h4 {
 .hero {
     background: #FEFCFD;
     color: var(--hackathon-navy);
-    padding: var(--spacing-3xl) 0;
-    padding-bottom: calc(var(--spacing-3xl) + 25px);
+    padding: var(--spacing-xl) 0;
+    padding-bottom: calc(var(--spacing-xl) + 40px);
     text-align: center;
     position: relative;
     overflow: visible;
+}
+
+/* Squiggle line at bottom of hero */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 135px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg width='135' height='40' viewBox='0 0 135 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q 7.5 20, 15 10 T 30 10 Q 37.5 20, 45 10 T 60 10 Q 67.5 20, 75 10 T 90 10 Q 97.5 20, 105 10 T 120 10 Q 127.5 20, 135 10' stroke='%23F47A6C' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8;
 }
 
 /* Hero decorative shapes */
@@ -2641,5 +2656,268 @@ html {
     
     .alert-text {
         font-size: 0.95rem;
+    }
+}
+
+/* ===================================
+   HACKATHON SUBMISSIONS SECTION
+   =================================== */
+
+.submissions-section {
+    background-color: #FEFCFD;
+    padding: var(--spacing-xl) 0 var(--spacing-3xl) 0;
+    overflow: visible;
+    position: relative;
+}
+
+
+
+.submissions-scroll-container {
+    position: relative;
+    margin-top: var(--spacing-xl);
+}
+
+/* Scroll Arrows */
+.scroll-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: var(--hackathon-teal-dark);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.scroll-arrow.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.scroll-arrow:hover {
+    background-color: var(--hackathon-teal);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-arrow-left {
+    left: 20px;
+}
+
+.scroll-arrow-right {
+    right: 20px;
+}
+
+.submissions-scroll-wrapper {
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: var(--spacing-md) 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.submissions-scroll-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.submissions-grid {
+    display: flex;
+    gap: var(--spacing-lg);
+    padding: 0 var(--spacing-xl);
+    min-width: min-content;
+}
+
+.submission-card {
+    flex: 0 0 380px;
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl) var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: visible;
+    text-align: center;
+    align-items: center;
+}
+
+/* Winner Colors - Matching site palette */
+.winner-first {
+    background-color: rgba(255, 193, 7, 0.15);
+}
+
+.winner-second {
+    background-color: rgba(77, 184, 168, 0.2);
+}
+
+.winner-third {
+    background-color: rgba(156, 39, 176, 0.12);
+}
+
+.runner-up {
+    background-color: rgba(244, 122, 108, 0.2);
+}
+
+.participant {
+    background-color: rgba(77, 184, 168, 0.15);
+}
+
+/* Ranking Badges */
+.ranking-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: 10px 18px;
+    border-radius: 50px;
+    font-weight: var(--font-weight-bold);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-first {
+    background-color: #FFB300;
+    color: #FFFFFF;
+}
+
+.badge-second {
+    background-color: var(--hackathon-teal);
+    color: #FFFFFF;
+}
+
+.badge-third {
+    background-color: #9C27B0;
+    color: #FFFFFF;
+}
+
+.badge-runnerup {
+    background-color: var(--hackathon-coral);
+    color: #FFFFFF;
+}
+
+.badge-participant {
+    background-color: var(--hackathon-navy);
+    color: #FFFFFF;
+}
+
+.ranking-badge svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Team Name */
+.team-name {
+    font-size: 1.75rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--hackathon-navy);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+/* Project Tagline */
+.project-tagline {
+    font-size: 1.05rem;
+    color: var(--e-global-color-text);
+    line-height: 1.5;
+    font-style: italic;
+    min-height: 3em;
+    flex-shrink: 0;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Video Container */
+.video-container-submission {
+    width: 100%;
+    flex-shrink: 0;
+    margin-top: auto;
+    margin-bottom: var(--spacing-md);
+}
+
+.video-container-submission .video-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--hackathon-navy);
+    font-weight: var(--font-weight-medium);
+    border: 2px dashed var(--hackathon-navy);
+}
+
+.video-container-submission .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background-color: #000;
+}
+
+.video-container-submission .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: var(--radius-lg);
+}
+
+/* Team Members */
+.team-members {
+    min-height: 3em;
+    flex-shrink: 0;
+}
+
+.team-members h4 {
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--hackathon-navy);
+    margin-bottom: var(--spacing-xs);
+}
+
+.team-members p {
+    font-size: 1rem;
+    color: var(--e-global-color-text);
+    line-height: 1.5;
+    font-style: normal;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .submission-card {
+        flex: 0 0 320px;
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+    
+    .team-name {
+        font-size: 1.5rem;
+    }
+    
+    .submissions-grid {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .scroll-arrow {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .scroll-arrow-left {
+        left: 10px;
+    }
+    
+    .scroll-arrow-right {
+        right: 10px;
     }
 }

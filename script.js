@@ -119,6 +119,59 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Horizontal Scroll Arrows for Submissions Section
+    const scrollWrapper = document.querySelector('.submissions-scroll-wrapper');
+    const leftArrow = document.querySelector('.scroll-arrow-left');
+    const rightArrow = document.querySelector('.scroll-arrow-right');
+    
+    if (scrollWrapper && leftArrow && rightArrow) {
+        const updateArrowVisibility = () => {
+            const scrollLeft = scrollWrapper.scrollLeft;
+            const scrollWidth = scrollWrapper.scrollWidth;
+            const clientWidth = scrollWrapper.clientWidth;
+            
+            // Show/hide left arrow
+            if (scrollLeft > 10) {
+                leftArrow.classList.add('visible');
+            } else {
+                leftArrow.classList.remove('visible');
+            }
+            
+            // Show/hide right arrow
+            if (scrollLeft < scrollWidth - clientWidth - 10) {
+                rightArrow.classList.add('visible');
+            } else {
+                rightArrow.classList.remove('visible');
+            }
+        };
+        
+        // Initial check
+        updateArrowVisibility();
+        
+        // Update on scroll
+        scrollWrapper.addEventListener('scroll', updateArrowVisibility);
+        
+        // Update on window resize
+        window.addEventListener('resize', updateArrowVisibility);
+        
+        // Arrow click handlers - scroll by 3 cards
+        // Card width is 380px + gap of 24px (var(--spacing-lg)) = 404px per card
+        // 3 cards = 1212px
+        leftArrow.addEventListener('click', () => {
+            scrollWrapper.scrollBy({
+                left: -1212,
+                behavior: 'smooth'
+            });
+        });
+        
+        rightArrow.addEventListener('click', () => {
+            scrollWrapper.scrollBy({
+                left: 1212,
+                behavior: 'smooth'
+            });
+        });
+    }
+    
     // Console message
     console.log('%c🌉 BRIDGEGOOD - AI for Social Good Hackathon', 'font-size: 16px; font-weight: bold; color: #FF6B35;');
     console.log('%c#DesignForSocialGood', 'font-size: 12px; color: #004E89;');
